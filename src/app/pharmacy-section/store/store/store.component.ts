@@ -30,21 +30,9 @@ export class StoreComponent implements OnInit {
       flex: 1
     },
     {
-      field: 'in_stock',
-      flex: 1
-    },
-    {
-      field: 'demand',
-      flex: 1
-    },
-    {
       field: 'in_stock_number',
       flex: 1
     },
-    {
-      field: 'demand_number',
-      flex: 1
-    }
   ]
 
 

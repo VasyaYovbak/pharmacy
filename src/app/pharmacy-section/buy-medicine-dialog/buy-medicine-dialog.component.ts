@@ -27,8 +27,7 @@ export class BuyMedicineDialogComponent implements OnInit {
 
   buyMedicine() {
 
-    const user = JSON.parse(this.cookieService.get('user')).user;
-    console.log(user)
+    const user = JSON.parse(this.cookieService.get('user'));
     const amount = +this.amount.nativeElement.value
     const orderData: Order = {
       id_medicine: this.data.id_medicine,
