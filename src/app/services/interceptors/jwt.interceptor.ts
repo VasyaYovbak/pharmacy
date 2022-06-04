@@ -16,10 +16,10 @@ export class JwtInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (this.cookie.get('token') !== '') {
+    if (this.cookie.get('access_token') !== '') {
       request = request.clone({
         setHeaders: {
-          Authorization: `Basic ${this.cookie.get('token')}`,
+          Authorization: `Basic ${this.cookie.get('access_token')}`,
         },
       });
     }
