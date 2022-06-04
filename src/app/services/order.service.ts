@@ -5,7 +5,7 @@ export interface Order {
   id_medicine: number,
   id_user: number,
   amount: number,
-  shipDate: string
+  shipDate: Date
 }
 
 @Injectable({
@@ -21,10 +21,10 @@ export class OrderService {
   }
 
   makeOrder(data: Order) {
-    this.http.post(this.url + 'api/v1/pharmacy/orders', data);
+    return this.http.post(this.url + 'api/v1/pharmacy/orders', data);
   }
 
   getAllOrders() {
-    this.http.get(this.url + 'api/v1/pharmacy/user/ordersall/')
+    return this.http.get(this.url + 'api/v1/pharmacy/user/ordersall/')
   }
 }

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Medicine, MedicineService} from "../../../services/medicine.service";
+import {ColDef, RowClickedEvent} from "ag-grid-community";
+import {Observable} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {BuyMedicineDialogComponent} from "../../buy-medicine-dialog/buy-medicine-dialog.component";
 
 @Component({
   selector: 'app-store',
@@ -7,9 +12,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreComponent implements OnInit {
 
-  constructor() { }
+  isDataReady = false;
+
+  public rowData$!: Observable<any[]>;
+
+  colDef: ColDef[] = [
+    {
+      field: 'name',
+      flex: 1
+    },
+    {
+      field: 'manufacturer',
+      flex: 1
+    },
+    {
+      field: 'price',
+      flex: 1
+    },
+    {
+      field: 'in_stock',
+      flex: 1
+    },
+    {
+      field: 'demand',
+      flex: 1
+    },
+    {
+      field: 'in_stock_number',
+      flex: 1
+    },
+    {
+      field: 'demand_number',
+      flex: 1
+    }
+  ]
+
+
+  constructor(
+    private medicineService: MedicineService,
+    public dialog: MatDialog
+  ) {
+  }
 
   ngOnInit(): void {
+    this.rowData$ = this.medicineService.getAllMedicines();
+  }
+
+  onRowClicked(event: RowClickedEvent) {
+    console.log(event);
+    this.dialog.open(BuyMedicineDialogComponent, {
+      width: '550px',
+      data: event.data
+    })
   }
 
 }
