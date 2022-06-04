@@ -10,5 +10,5 @@ export const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'store', component: StoreComponent},
   {path: 'my-orders', component: OrdersComponent},
-  {path: '**', redirectTo: ''},
+  {path: '**', redirectTo: 'store'},
 ];
