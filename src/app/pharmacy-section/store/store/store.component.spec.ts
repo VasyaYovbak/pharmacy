@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StoreComponent } from './store.component';
+import {StoreComponent} from './store.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('StoreComponent', () => {
   let component: StoreComponent;
@@ -8,9 +10,10 @@ describe('StoreComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StoreComponent ]
+      declarations: [StoreComponent],
+      imports: [HttpClientTestingModule, MatDialogModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

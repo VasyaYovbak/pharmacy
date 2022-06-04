@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(this.cookie.get('user'));
-
     this.form = new FormGroup({
       firstName: new FormControl(this.user.firstName),
       lastName: new FormControl(this.user.lastName),
@@ -40,7 +39,7 @@ export class ProfileComponent implements OnInit {
     this.authToken = this.cookie.get('access_token');
 
     const data = this.form.getRawValue();
-    console.log(data.firstName)
+
 
     if(data.password){
       if (data.password !== data.password && data.password.length < 8){
@@ -56,7 +55,6 @@ export class ProfileComponent implements OnInit {
     }
 
     data['login'] = this.user.login
-    console.log(data);
     this.http.put(this.API + '/api/v1/updateuser', data, {
       headers: {'Authorization': 'Basic ' + this.authToken}
     }).subscribe({

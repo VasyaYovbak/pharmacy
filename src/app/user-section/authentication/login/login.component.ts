@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       next: (data) => {
         this.cookieService.set('access_token', btoa(user.login + ':' + user.password),60);
         this.cookieService.set('user', JSON.stringify(data['user']), 60);
-        this.router.navigate(['/user']);
+        this.router.navigate(['/store']);
       },
       error: (err => {
         if (err.status === 403) {

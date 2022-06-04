@@ -25,6 +25,6 @@ export class OrderService {
   }
 
   getAllOrders() {
-    return this.http.get(this.url + 'api/v1/pharmacy/user/ordersall/')
+    return this.http.get<Order[]>(this.url + 'api/v1/pharmacy/user/ordersall/')
   }
 }
