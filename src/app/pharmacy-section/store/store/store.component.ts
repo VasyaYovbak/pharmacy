@@ -47,7 +47,6 @@ export class StoreComponent implements OnInit {
   }
 
   onRowClicked(event: RowClickedEvent) {
-    console.log(event);
     this.dialog.open(BuyMedicineDialogComponent, {
       width: '550px',
       data: event.data

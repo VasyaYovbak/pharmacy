@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
 export class NavigationComponent implements OnInit {
 
   get isUserLoggedIn() {
-    console.log('here')
     return this.cookieService.get('user') !== ''
   }
 
